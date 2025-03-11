@@ -1,6 +1,5 @@
 package com.learning.security.springsecurity.controller;
 
-import com.learning.security.springsecurity.config.EazyBankUserDetailsService;
 import com.learning.security.springsecurity.model.Customer;
 import com.learning.security.springsecurity.repository.CustomerRepository;
 import lombok.RequiredArgsConstructor;
@@ -16,7 +15,6 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class UserController {
 
-    private final EazyBankUserDetailsService eazyBankUserDetailsService;
     private final CustomerRepository customerRepository;
     private final PasswordEncoder passwordEncoder;
 
