@@ -17,7 +17,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class EazyBankUserDetailsService implements UserDetailsService {
 
-
     private final CustomerRepository customerRepository;
 
     @Override
