@@ -15,13 +15,14 @@ import static org.springframework.security.config.Customizer.withDefaults;
 
 
 @Configuration
-@Profile("!prod")
-public class ProjectSecurityConfig {
+@Profile("prod")
+public class ProjectSecurityProdConfig {
 
 
     @Bean
     SecurityFilterChain customSecurityFilterChain(HttpSecurity http) throws Exception {
-        http.csrf(csrf -> csrf.disable())
+        http.requiresChannel(rcc -> rcc.anyRequest().requiresSecure()) //https only
+                .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests((requests) -> requests.requestMatchers("/myCards","/myAccount","/myLoans","/myBalance").authenticated()
                 .requestMatchers("/myContact","/myNotice","/error","/registerUser").permitAll());
         http.formLogin(withDefaults());
